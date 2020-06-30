@@ -1,7 +1,8 @@
 {
     "name": "Pinball",
     "dependencies": {
-        "device": "*"
+        "device": "*",
+        "controller": "*"
     },
     "description": "",
     "files": [
