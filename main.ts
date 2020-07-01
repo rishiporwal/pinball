@@ -30,11 +30,11 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.MultiBall, function (sprite, oth
     if (NumOfBalls < 3 && NumOfBalls > 0) {
         Ghost(otherSprite)
         Multi1 = sprites.create(img`
-. e e . 
-e e e e 
-e e e e 
-. e e . 
-`, SpriteKind.Player)
+            . e e .
+            e e e e
+            e e e e
+            . e e .
+        `, SpriteKind.Player)
         Multi1.setPosition(35, 80)
         Multi1.ay = 50
         NumOfBalls += 1
@@ -43,196 +43,196 @@ e e e e
 function Start () {
     NumOfBalls = 1
     game.setDialogCursor(img`
-f f f f f f f f f f f f f f f f 
-f f f f f f f f f f f f f f f f 
-f f f f f f f f f f f f f f f f 
-f f f f f f f f f f f f f f f f 
-f f f f f f f f f f f f f f f f 
-f f f f f f f f f f f f f f f f 
-f f f f f f f f f f f f f f f f 
-f f f f f f f f f f f f f f f f 
-f f f f f f f f f f f f f f f f 
-f f f f f f f f f f f f f f f f 
-f f f f f f f f f f f f f f f f 
-f f f f f f f f f f f f f f f f 
-f f f f f f f f f f f f f f f f 
-f f f f f f f f f f f f f f f f 
-f f f f f f f f f f f f f f f f 
-f f f f f f f f f f f f f f f f 
-`)
+        f f f f f f f f f f f f f f f f
+        f f f f f f f f f f f f f f f f
+        f f f f f f f f f f f f f f f f
+        f f f f f f f f f f f f f f f f
+        f f f f f f f f f f f f f f f f
+        f f f f f f f f f f f f f f f f
+        f f f f f f f f f f f f f f f f
+        f f f f f f f f f f f f f f f f
+        f f f f f f f f f f f f f f f f
+        f f f f f f f f f f f f f f f f
+        f f f f f f f f f f f f f f f f
+        f f f f f f f f f f f f f f f f
+        f f f f f f f f f f f f f f f f
+        f f f f f f f f f f f f f f f f
+        f f f f f f f f f f f f f f f f
+        f f f f f f f f f f f f f f f f
+    `)
     make_right_sides()
     makeleftsides()
     UpWall = sprites.create(img`
-f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f 
-`, SpriteKind.TopWall)
+        f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f
+    `, SpriteKind.TopWall)
     UpWall.setPosition(80, 38)
     info.setScore(0)
     up = false
     scene.setBackgroundImage(img`
-b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b d f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f d b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b 
-b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b d f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f d b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b 
-b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b d f f f f f f f f f f f f f f f f f f f f f f f f d d d d d d d f f f f f f f f f f f f f f f f f f d d d d d d d f f f f f f f f f f f f f f d f f f f d f f f f f f f f f f f f f f f f f f f f f f d b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b 
-b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b d f f f f f f f f f f f f f f f f f f f f f f f f d f f f f f f d f f f f f f f f f f f f f f f f f d f f f f f f d f f f f f f f f f f f f f d f f f f d f f f f f f f f f f f f f f f f f f f f f f d b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b 
-b b b b b b b b b b b b b b b b b b b b b b b b b b b b b d d f f f f f f f f f f f f f f f f f f f f f f f f d f f f f f f f d f f f f f f f f f f f f f f f f d f f f f f f f d f f f f f f f f f f f f d f f f f d f f f f f f f f f f f f f f f f f f f f f f d b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b 
-b b b b b b b b b b b b b b b b b b b b b b b b b b b b b d d f f f f f f f f f f f f f f f f f f f f f f f f d f f f f f f f d f f f f f f f f f f f f f f f f d f f f f f f f d f f f f f f f f f f f f d f f f f d f f f f f f f f f f f f f f f f f f f f f f d d b b b b b b b b b b b b b b b b b b b b b b b b b b b b b 
-b b b b b b b b b b b b b b b b b b b b b b b b b b b b b d d f f f f f f f f f f f f f f f f f f f f f f f f d f f f f f f f d f f f f f f f f f f f f f f f f d f f f f f f f d f f f f f f f f f f f f d f f f f d f f f f f f f f f f f f f f f f f f f f f f d d b b b b b b b b b b b b b b b b b b b b b b b b b b b b b 
-b b b b b b b b b b b b b b b b b b b b b b b b b b b b b d d f f f f f f f f f f f f f f f f f f f f f f f f d f f f f f f f d f f f f f f f f f f f f f f f f d f f f f f f f d f f f f f f f f f f f f d f f f f d f f f f f f f f f f f f f f f f f f f f f f d d b b b b b b b b b b b b b b b b b b b b b b b b b b b b b 
-b b b b b b b b b b b b b b b b b b b b b b b b b b b b f f d f f f f f f f f f f f f f f f f f f f f f f f f d f f f f f f d f f f f f f f f f f f f f f f f f d f f f f f f f d f f f f f f f f f f f f d f f f f d f f f f f f f f f f f f f f f f f f f f f f d d b b b b b b b b b b b b b b b b b b b b b b b b b b b b b 
-b b b b b b b b b b b b b b b b b b b b b b b b b b b b f f d f f f f f f f f f f f f f f f f f f f f f f f f d d d d d d d f f d f f f f f f f f f f f f f f f d f f f f f f f d f f f f f f f f f f f f d f f f f d f f f f f f f f f f f f f f f f f f f f f f d f f b b b b b b b b b b b b b b b b b b b b b b b b b b b b 
-b b b b b b b b b b b b b b b b b b b b b b b b b b b b f f d f f f f f f f f f f f f f f f f f f f f f f f f d f f f f f f f f f f f f f f f f f f f f f f f f d f f f f f f f d f f f f f f f f f f f f d f f f f d f f f f f f f f f f f f f f f f f f f f f f d f f b b b b b b b b b b b b b b b b b b b b b b b b b b b b 
-b b b b b b b b b b b b b b b b b b b b b b b b b b b b f f d f f f f f f f f f f f f f f f f f f f f f f f f d f f f f f f f f f f f f f f f f f f f f f f f f d f f f f f f f d f f f f f f f f f f f f d f f f f d f f f f f f f f f f f f f f f f f f f f f f d f f b b b b b b b b b b b b b b b b b b b b b b b b b b b b 
-b b b b b b b b b b b b b b b b b b b b b b b b b b b f f f d f f f f f f f f f f f f f f f f f f f f f f f f d f f f f f f f f d f f d f f f f f f f f f f f f d f f f f f f f d f f f f f f f f f f f f d f f f f d f f f f f f f f f f f f f f f f f f f f f f d f f b b b b b b b b b b b b b b b b b b b b b b b b b b b b 
-b b b b b b b b b b b b b b b b b b b b b b b b b b b f f f d f f f f f f f f f f f f f f f f f f f f f f f f d f f f f f f f f d f f d d d d d d d d d f f f f d f f f f f f f d f f f f f f f f f f f f d f f f f d f f f f f f f f f f f f f f f f f f f f f f d f f f b b b b b b b b b b b b b b b b b b b b b b b b b b b 
-b b b b b b b b b b b b b b b b b b b b b b b b b b b f f f d f f f f f f f f f f f f f f f f f f f f f f f f d f f f f f f f f d f f d f f f f f f f f d f f f d f f f f f f d f f f f f f f f f f d f f d f f f f d f f f f f f f f f f f f f f f f f f f f f f d f f f b b b b b b b b b b b b b b b b b b b b b b b b b b b 
-b b b b b b b b b b b b b b b b b b b b b b b b b b b f f f d f f f f f f f f f f f f f f f f f f f f f f f f d f f f f f f f f d f f d f f f f f f f f d d f f d d d d d d d f f f f f f f f d d d d f f d f f f f d f f f f f f f f f f f f f f f f f f f f f f d f f f b b b b b b b b b b b b b b b b b b b b b b b b b b b 
-b b b b b b b b b b b b b b b b b b b b b b b b b b f f f f d f f f f f f f f f f f f f f f f f f f f f f f f d f f f f f f f f d f f d f f f f f f f f f d f f d f f f f f f d d d f f f f d f f f d f f d f f f f d f f f f f f f f f f f f f f f f f f f f f f d f f f b b b b b b b b b b b b b b b b b b b b b b b b b b b 
-b b b b b b b b b b b b b b b b b b b b b b b b b b f f f f d f f f f f f f f f f f f f f f f f f f f f f f f d f f f f f f f f d f f d f f f f f f f f f d f f d f f f f f f f f f d f f d f f f f d f f d f f f f d f f f f f f f f f f f f f f f f f f f f f f d f f f f b b b b b b b b b b b b b b b b b b b b b b b b b b 
-b b b b b b b b b b b b b b b b b b b b b b b b b b f f f f d f f f f f f f f f f f f f f f f f f f f f f f f d f f f f f f f f d f f d f f f f f f f f f d f f d f f f f f f f f f d f f d f f f f d f f d f f f f d f f f f f f f f f f f f f f f f f f f f f f d f f f f b b b b b b b b b b b b b b b b b b b b b b b b b b 
-b b b b b b b b b b b b b b b b b b b b b b b b b b f f f f d f f f f f f f f f f f f f f f f f f f f f f f f d f f f f f f f f d f f d f f f f f f f f f d f f d f f f f f f f f f d f f d f f f f d f f d f f f f d f f f f f f f f f f f f f f f f f f f f f f d f f f f b b b b b b b b b b b b b b b b b b b b b b b b b b 
-b b b b b b b b b b b b b b b b b b b b b b b b b f f f f f d f f f f f f f f f f f f f f f f f f f f f f f f d f f f f f f f f d f f d f f f f f f f f f d f f d f f f f f f f f f d f f d f f f f d f f d f f f f d f f f f f f f f f f f f f f f f f f f f f f d f f f f b b b b b b b b b b b b b b b b b b b b b b b b b b 
-b b b b b b b b b b b b b b b b b b b b b b b b b f f f f f d f f f f f f f f f f f f f f f f f f f f f f f f d f f f f f f f f d f f d f f f f f f f f f d f f d f f f f f f f f f d f f d f f f f d f f d f f f f d f f f f f f f f f f f f f f f f f f f f f f d f f f f f b b b b b b b b b b b b b b b b b b b b b b b b b 
-b b b b b b b b b b b b b b b b b b b b b b b b b f f f f f d f f f f f f f f f f f f f f f f f f f f f f f f d f f f f f f f f d f f d f f f f f f f f f d f f d f f f f f f f f f d f f d f f f f d f f d f f f f d f f f f f f f f f f f f f f f f f f f f f f d f f f f f b b b b b b b b b b b b b b b b b b b b b b b b b 
-b b b b b b b b b b b b b b b b b b b b b b b b b f f f f f d f f f f f f f f f f f f f f f f f f f f f f f f d f f f f f f f f d f f d f f f f f f f f f d f f d f f f f f f f f f d f f d f f f f d f f d f f f f d f f f f f f f f f f f f f f f f f f f f f f d f f f f f b b b b b b b b b b b b b b b b b b b b b b b b b 
-b b b b b b b b b b b b b b b b b b b b b b b b f f f f f f d f f f f f f f f f f f f f f f f f f f f f f f f d f f f f f f f f d f f d f f f f f f f f f d f f d f f f f f f f f f d f f d f f f f d f f d f f f f d f f f f f f f f f f f f f f f f f f f f f f d f f f f f b b b b b b b b b b b b b b b b b b b b b b b b b 
-b b b b b b b b b b b b b b b b b b b b b b b b f f f f f f d f f f f f f f f f f f f f f f f f f f f f f f f d f f f f f f f f d f f d f f f f f f f f f d f f d f f f f f f f f f d f f d f f f f d f f d f f f f d f f f f f f f f f f f f f f f f f f f f f f d f f f f f f b b b b b b b b b b b b b b b b b b b b b b b b 
-b b b b b b b b b b b b b b b b b b b b b b b b f f f f f f d f f f f f f f f f f f f f f f f f f f f f f f f d f f f f f f f f d f f d f f f f f f f f f d f f d f f f f f f f f f d f f d f f f f d f f d f f f f d f f f f f f f f f f f f f f f f f f f f f f d f f f f f f b b b b b b b b b b b b b b b b b b b b b b b b 
-b b b b b b b b b b b b b b b b b b b b b b b b f f f f f f d f f f f f f f f f f f f f f f f f f f f f f f f d f f f f f f f f d f f d f f f f f f f f f d f f d f f f f f f f f f d f f d f f f f d f f d f f f f d f f f f f f f f f f f f f f f f f f f f f f d f f f f f f b b b b b b b b b b b b b b b b b b b b b b b b 
-b b b b b b b b b b b b b b b b b b b b b b b f f f f f f f d f f f f f f f f f f f f f f f f f f f f f f f f d f f f f f f f f d f f d f f f f f f f f f d f f d f f f f f f f f f d f f d f f f f d f f d f f f f d f f f f f f f f f f f f f f f f f f f f f f d f f f f f f b b b b b b b b b b b b b b b b b b b b b b b b 
-b b b b b b b b b b b b b b b b b b b b b b b f f f f f f f d f f f f f f f f f f f f f f f f f f f f f f f f d f f f f f f f f d f f d f f f f f f f f f d f f d f f f f f f f f f d f f d f f f f d f f d f f f f d f f f f f f f f f f f f f f f f f f f f f f d f f f f f f f b b b b b b b b b b b b b b b b b b b b b b b 
-b b b b b b b b b b b b b b b b b b b b b b b f f f f f f f d f f f f f f f f f f f f f f f f f f f f f f f f d f f f f f f f f d f f d f f f f f f f f f d f f d f f f f f f f f f d f f d f f f f d f f d f f f f d f f f f f f f f f f f f f f f f f f f f f f d f f f f f f f b b b b b b b b b b b b b b b b b b b b b b b 
-b b b b b b b b b b b b b b b b b b b b b b b f f f f f f f d f f f f f f f f f f f f f f f f f f f f f f f f d f f f f f f f f d f f d f f f f f f f f f d f f d f f f f f f f f f d f f d f f f f d f f d f f f f d f f f f f f f f f f f f f f f f f f f f f f d f f f f f f f b b b b b b b b b b b b b b b b b b b b b b b 
-b b b b b b b b b b b b b b b b b b b b b b f f f f f f f f d f f f f f f f f f f f f f f f f f f f f f f f f d f f f f f f f f d f f d f f f f f f f f f d f f d f f f f f f f f d f f f f d f f f d f f d f f f f d f f f f f f f f f f f f f f f f f f f f f f d f f f f f f f f b b b b b b b b b b b b b b b b b b b b b b 
-b b b b b b b b b b b b b b b b b b b b b b f f f f f f f f d f f f f f f f f f f f f f f f f f f f f f f f f d f f f f f f f f d f f d f f f f f f f f f d f f d d d d d d d d d f f f f f f d d d d f f d f f f f d f f f f f f f f f f f f f f f f f f f f f f d f f f f f f f f b b b b b b b b b b b b b b b b b b b b b b 
-b b b b b b b b b b b b b b b b b b b b b b f f f f f f f f d f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f d f f f f f f f f b b b b b b b b b b b b b b b b b b b b b b 
-b b b b b b b b b b b b b b b b b b b b b b f f f f f f f f d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d f f f f f f f f b b b b b b b b b b b b b b b b b b b b b b 
-b b b b b b b b b b b b b b b b b b b b b f f f f f f f f f d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d f f f f f f f f f b b b b b b b b b b b b b b b b b b b b b 
-b b b b b b b b b b b b b b b b b b b b b f f f f f f f f f d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d f f f f f f f f f b b b b b b b b b b b b b b b b b b b b b 
-b b b b b b b b b b b b b b b b b b b b b f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f b b b b b b b b b b b b b b b b b b b b b 
-b b b b b b b b b b b b b b b b b b b b b f f f f f f f f f d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d f f f f f f f f f b b b b b b b b b b b b b b b b b b b b b 
-b b b b b b b b b b b b b b b b b b b b f f f f f f f f f d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d f f f f f f f f f b b b b b b b b b b b b b b b b b b b b 
-b b b b b b b b b b b b b b b b b b b b f f f f f f f f f d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d f f f f f f f f f b b b b b b b b b b b b b b b b b b b b 
-b b b b b b b b b b b b b b b b b b b b f f f f f f f f f d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d f f f f f f f f f b b b b b b b b b b b b b b b b b b b b 
-b b b b b b b b b b b b b b b b b b b b f f f f f f f f f d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d f f f f f f f f f b b b b b b b b b b b b b b b b b b b b 
-b b b b b b b b b b b b b b b b b b b f f f f f f f f f d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d f f f f f f f f f b b b b b b b b b b b b b b b b b b b 
-b b b b b b b b b b b b b b b b b b b f f f f f f f f f d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d f f f f f f f f f b b b b b b b b b b b b b b b b b b b 
-b b b b b b b b b b b b b b b b b b b f f f f f f f f f d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d f f f f f f f f f b b b b b b b b b b b b b b b b b b b 
-b b b b b b b b b b b b b b b b b b b f f f f f f f f f d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d f f f f f f f f f b b b b b b b b b b b b b b b b b b b 
-b b b b b b b b b b b b b b b b b b f f f f f f f f f d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d f f f f f f f f f b b b b b b b b b b b b b b b b b b 
-b b b b b b b b b b b b b b b b b b f f f f f f f f f d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d f f f f f f f f f b b b b b b b b b b b b b b b b b b 
-b b b b b b b b b b b b b b b b b b f f f f f f f f f d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d f f f f f f f f f b b b b b b b b b b b b b b b b b b 
-b b b b b b b b b b b b b b b b b b f f f f f f f f d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d f f f f f f f f b b b b b b b b b b b b b b b b b b 
-b b b b b b b b b b b b b b b b b f f f f f f f f f d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d f f f f f f f f f b b b b b b b b b b b b b b b b b 
-b b b b b b b b b b b b b b b b b f f f f f f f f f d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d f f f f f f f f f b b b b b b b b b b b b b b b b b 
-b b b b b b b b b b b b b b b b b f f f f f f f f f d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d f f f f f f f f f b b b b b b b b b b b b b b b b b 
-b b b b b b b b b b b b b b b b b f f f f f f f f d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d f f f f f f f f b b b b b b b b b b b b b b b b b 
-b b b b b b b b b b b b b b b b f f f f f f f f f d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d f f f f f f f f f b b b b b b b b b b b b b b b b 
-b b b b b b b b b b b b b b b b f f f f f f f f f d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d f f f f f f f f f b b b b b b b b b b b b b b b b 
-b b b b b b b b b b b b b b b b f f f f f f f f f d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d f f f f f f f f f b b b b b b b b b b b b b b b b 
-b b b b b b b b b b b b b b b b f f f f f f f f d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d f f f f f f f f b b b b b b b b b b b b b b b b 
-b b b b b b b b b b b b b b b f f f f f f f f f d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d f f f f f f f f f b b b b b b b b b b b b b b b 
-b b b b b b b b b b b b b b b f f f f f f f f f d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d f f f f f f f f f b b b b b b b b b b b b b b b 
-b b b b b b b b b b b b b b b f f f f f f f f f d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d f f f f f f f f f b b b b b b b b b b b b b b b 
-b b b b b b b b b b b b b b f f f f f f f f f d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d f f f f f f f f b b b b b b b b b b b b b b b 
-b b b b b b b b b b b b b b f f f f f f f f f d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d f f f f f f f f f b b b b b b b b b b b b b b 
-b b b b b b b b b b b b b b f f f f f f f f f d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d f f f f f f f f f b b b b b b b b b b b b b b 
-b b b b b b b b b b b b b b f f f f f f f f f d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d f f f f f f f f f b b b b b b b b b b b b b b 
-b b b b b b b b b b b b b f f f f f f f f f d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d f f f f f f f f b b b b b b b b b b b b b b 
-b b b b b b b b b b b b b f f f f f f f f f d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d f f f f f f f f f b b b b b b b b b b b b b 
-b b b b b b b b b b b b b f f f f f f f f f d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d f f f f f f f f f b b b b b b b b b b b b b 
-b b b b b b b b b b b b b f f f f f f f f f d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d f f f f f f f f f b b b b b b b b b b b b b 
-b b b b b b b b b b b b f f f f f f f f f d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d f f f f f f f f b b b b b b b b b b b b b 
-b b b b b b b b b b b b f f f f f f f f f d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d f f f f f f f f f b b b b b b b b b b b b 
-b b b b b b b b b b b b f f f f f f f f f d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d f f f f f f f f f b b b b b b b b b b b b 
-b b b b b b b b b b b b f f f f f f f f f d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d f f f f f f f f f b b b b b b b b b b b b 
-b b b b b b b b b b b f f f f f f f f f d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d f f f f f f f f b b b b b b b b b b b b 
-b b b b b b b b b b b f f f f f f f f f d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d f f f f f f f f f b b b b b b b b b b b 
-b b b b b b b b b b b f f f f f f f f f d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d f f f f f f f f f b b b b b b b b b b b 
-b b b b b b b b b b b f f f f f f f f f d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d f f f f f f f f f b b b b b b b b b b b 
-b b b b b b b b b b f f f f f f f f f d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d f f f f f f f f b b b b b b b b b b b 
-b b b b b b b b b b f f f f f f f f f d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d f f f f f f f f f b b b b b b b b b b 
-b b b b b b b b b b f f f f f f f f f d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d f f f f f f f f f b b b b b b b b b b 
-b b b b b b b b b b f f f f f f f f d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d f f f f f f f f b b b b b b b b b b 
-b b b b b b b b b f f f f f f f f f d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d f f f f f f f f b b b b b b b b b b 
-b b b b b b b b b f f f f f f f f f d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d f f f f f f f f f b b b b b b b b b 
-b b b b b b b b b f f f f f f f f f d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d f f f f f f f f f b b b b b b b b b 
-b b b b b b b b b f f f f f f f f d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d f f f f f f f f b b b b b b b b b 
-b b b b b b b b f f f f f f f f f d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d f f f f f f f f b b b b b b b b b 
-b b b b b b b b f f f f f f f f f d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d f f f f f f f f f b b b b b b b b 
-b b b b b b b b f f f f f f f f f d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d f f f f f f f f f b b b b b b b b 
-b b b b b b b b f f f f f f f f d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d f f f f f f f f b b b b b b b b 
-b b b b b b b f f f f f f f f f d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d f f f f f f f f f b b b b b b b 
-b b b b b b b f f f f f f f f f d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d f f f f f f f f f b b b b b b b 
-b b b b b b b f f f f f f f f f d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d f f f f f f f f f b b b b b b b 
-b b b b b b b f f f f f f f f d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d f f f f f f f f b b b b b b b 
-b b b b b b f f f f f f f f f d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d f f f f f f f f f b b b b b b 
-b b b b b b f f f f f f f f f d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d f f f f f f f f f b b b b b b 
-b b b b b b f f f f f f f f f d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d f f f f f f f f f b b b b b b 
-b b b b b b f f f f f f f f d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d f f f f f f f f b b b b b b 
-b b b b b f f f f f f f f f d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d f f f f f f f f f b b b b b 
-b b b b b f f f f f f f f f d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d f f f f f f f f f b b b b b 
-b b b b b f f f f f f f f f d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d f f d d d f f f f f f f f f b b b b b 
-b b b b b f f f f f f f f d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d f b b f d d d f f f f f f f f b b b b b 
-b b b b f f f f f f f f f d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d f b b b f d d f f f f f f f f f b b b b 
-b b b b f f f f f f f f f d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d f b b b f d d f f f f f f f f f b b b b 
-b b b b f f f f f f f f f d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d f b b b f d d f f f f f f f f f b b b b 
-b b b b f f f f f f f f f d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d f b b b f d d f f f f f f f f f b b b b 
-b b b f f f f f f f f f d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d f b b b f d d f f f f f f f f f b b b 
-b b b f f f f f f f f f d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d f b b b f d d f f f f f f f f f b b b 
-b b b f f f f f f f f f d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d f b b b f d d f f f f f f f f f b b b 
-b b b f f f f f f f f f d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d f b b b f d d f f f f f f f f f b b b 
-b b f f f f f f f f f d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d f b b b f d d f f f f f f f f f b b 
-b b f f f f f f f f f d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d f b b b f d d f f f f f f f f f b b 
-b b f f f f f f f f f d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d f b b b f d d f f f f f f f f f b b 
-b b f f f f f f f f f d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d f b b b f d d f f f f f f f f f b b 
-b f f f f f f f f f d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d f b b b f d d f f f f f f f f f b 
-b f f f f f f f f f d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d f b b b f d d f f f f f f f f f b 
-b f f f f f f f f f d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d f b b b f d d f f f f f f f f f b 
-b f f f f f f f f f d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d f b b b f d d f f f f f f f f f b 
-f f f f f f f f f d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d f b b b f d d f f f f f f f f f 
-`)
+        b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b d f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f d b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b
+        b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b d f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f d b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b
+        b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b d f f f f f f f f f f f f f f f f f f f f f f f f d d d d d d d f f f f f f f f f f f f f f f f f f d d d d d d d f f f f f f f f f f f f f f d f f f f d f f f f f f f f f f f f f f f f f f f f f f d b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b
+        b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b d f f f f f f f f f f f f f f f f f f f f f f f f d f f f f f f d f f f f f f f f f f f f f f f f f d f f f f f f d f f f f f f f f f f f f f d f f f f d f f f f f f f f f f f f f f f f f f f f f f d b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b
+        b b b b b b b b b b b b b b b b b b b b b b b b b b b b b d d f f f f f f f f f f f f f f f f f f f f f f f f d f f f f f f f d f f f f f f f f f f f f f f f f d f f f f f f f d f f f f f f f f f f f f d f f f f d f f f f f f f f f f f f f f f f f f f f f f d b b b b b b b b b b b b b b b b b b b b b b b b b b b b b b
+        b b b b b b b b b b b b b b b b b b b b b b b b b b b b b d d f f f f f f f f f f f f f f f f f f f f f f f f d f f f f f f f d f f f f f f f f f f f f f f f f d f f f f f f f d f f f f f f f f f f f f d f f f f d f f f f f f f f f f f f f f f f f f f f f f d d b b b b b b b b b b b b b b b b b b b b b b b b b b b b b
+        b b b b b b b b b b b b b b b b b b b b b b b b b b b b b d d f f f f f f f f f f f f f f f f f f f f f f f f d f f f f f f f d f f f f f f f f f f f f f f f f d f f f f f f f d f f f f f f f f f f f f d f f f f d f f f f f f f f f f f f f f f f f f f f f f d d b b b b b b b b b b b b b b b b b b b b b b b b b b b b b
+        b b b b b b b b b b b b b b b b b b b b b b b b b b b b b d d f f f f f f f f f f f f f f f f f f f f f f f f d f f f f f f f d f f f f f f f f f f f f f f f f d f f f f f f f d f f f f f f f f f f f f d f f f f d f f f f f f f f f f f f f f f f f f f f f f d d b b b b b b b b b b b b b b b b b b b b b b b b b b b b b
+        b b b b b b b b b b b b b b b b b b b b b b b b b b b b f f d f f f f f f f f f f f f f f f f f f f f f f f f d f f f f f f d f f f f f f f f f f f f f f f f f d f f f f f f f d f f f f f f f f f f f f d f f f f d f f f f f f f f f f f f f f f f f f f f f f d d b b b b b b b b b b b b b b b b b b b b b b b b b b b b b
+        b b b b b b b b b b b b b b b b b b b b b b b b b b b b f f d f f f f f f f f f f f f f f f f f f f f f f f f d d d d d d d f f d f f f f f f f f f f f f f f f d f f f f f f f d f f f f f f f f f f f f d f f f f d f f f f f f f f f f f f f f f f f f f f f f d f f b b b b b b b b b b b b b b b b b b b b b b b b b b b b
+        b b b b b b b b b b b b b b b b b b b b b b b b b b b b f f d f f f f f f f f f f f f f f f f f f f f f f f f d f f f f f f f f f f f f f f f f f f f f f f f f d f f f f f f f d f f f f f f f f f f f f d f f f f d f f f f f f f f f f f f f f f f f f f f f f d f f b b b b b b b b b b b b b b b b b b b b b b b b b b b b
+        b b b b b b b b b b b b b b b b b b b b b b b b b b b b f f d f f f f f f f f f f f f f f f f f f f f f f f f d f f f f f f f f f f f f f f f f f f f f f f f f d f f f f f f f d f f f f f f f f f f f f d f f f f d f f f f f f f f f f f f f f f f f f f f f f d f f b b b b b b b b b b b b b b b b b b b b b b b b b b b b
+        b b b b b b b b b b b b b b b b b b b b b b b b b b b f f f d f f f f f f f f f f f f f f f f f f f f f f f f d f f f f f f f f d f f d f f f f f f f f f f f f d f f f f f f f d f f f f f f f f f f f f d f f f f d f f f f f f f f f f f f f f f f f f f f f f d f f b b b b b b b b b b b b b b b b b b b b b b b b b b b b
+        b b b b b b b b b b b b b b b b b b b b b b b b b b b f f f d f f f f f f f f f f f f f f f f f f f f f f f f d f f f f f f f f d f f d d d d d d d d d f f f f d f f f f f f f d f f f f f f f f f f f f d f f f f d f f f f f f f f f f f f f f f f f f f f f f d f f f b b b b b b b b b b b b b b b b b b b b b b b b b b b
+        b b b b b b b b b b b b b b b b b b b b b b b b b b b f f f d f f f f f f f f f f f f f f f f f f f f f f f f d f f f f f f f f d f f d f f f f f f f f d f f f d f f f f f f d f f f f f f f f f f d f f d f f f f d f f f f f f f f f f f f f f f f f f f f f f d f f f b b b b b b b b b b b b b b b b b b b b b b b b b b b
+        b b b b b b b b b b b b b b b b b b b b b b b b b b b f f f d f f f f f f f f f f f f f f f f f f f f f f f f d f f f f f f f f d f f d f f f f f f f f d d f f d d d d d d d f f f f f f f f d d d d f f d f f f f d f f f f f f f f f f f f f f f f f f f f f f d f f f b b b b b b b b b b b b b b b b b b b b b b b b b b b
+        b b b b b b b b b b b b b b b b b b b b b b b b b b f f f f d f f f f f f f f f f f f f f f f f f f f f f f f d f f f f f f f f d f f d f f f f f f f f f d f f d f f f f f f d d d f f f f d f f f d f f d f f f f d f f f f f f f f f f f f f f f f f f f f f f d f f f b b b b b b b b b b b b b b b b b b b b b b b b b b b
+        b b b b b b b b b b b b b b b b b b b b b b b b b b f f f f d f f f f f f f f f f f f f f f f f f f f f f f f d f f f f f f f f d f f d f f f f f f f f f d f f d f f f f f f f f f d f f d f f f f d f f d f f f f d f f f f f f f f f f f f f f f f f f f f f f d f f f f b b b b b b b b b b b b b b b b b b b b b b b b b b
+        b b b b b b b b b b b b b b b b b b b b b b b b b b f f f f d f f f f f f f f f f f f f f f f f f f f f f f f d f f f f f f f f d f f d f f f f f f f f f d f f d f f f f f f f f f d f f d f f f f d f f d f f f f d f f f f f f f f f f f f f f f f f f f f f f d f f f f b b b b b b b b b b b b b b b b b b b b b b b b b b
+        b b b b b b b b b b b b b b b b b b b b b b b b b b f f f f d f f f f f f f f f f f f f f f f f f f f f f f f d f f f f f f f f d f f d f f f f f f f f f d f f d f f f f f f f f f d f f d f f f f d f f d f f f f d f f f f f f f f f f f f f f f f f f f f f f d f f f f b b b b b b b b b b b b b b b b b b b b b b b b b b
+        b b b b b b b b b b b b b b b b b b b b b b b b b f f f f f d f f f f f f f f f f f f f f f f f f f f f f f f d f f f f f f f f d f f d f f f f f f f f f d f f d f f f f f f f f f d f f d f f f f d f f d f f f f d f f f f f f f f f f f f f f f f f f f f f f d f f f f b b b b b b b b b b b b b b b b b b b b b b b b b b
+        b b b b b b b b b b b b b b b b b b b b b b b b b f f f f f d f f f f f f f f f f f f f f f f f f f f f f f f d f f f f f f f f d f f d f f f f f f f f f d f f d f f f f f f f f f d f f d f f f f d f f d f f f f d f f f f f f f f f f f f f f f f f f f f f f d f f f f f b b b b b b b b b b b b b b b b b b b b b b b b b
+        b b b b b b b b b b b b b b b b b b b b b b b b b f f f f f d f f f f f f f f f f f f f f f f f f f f f f f f d f f f f f f f f d f f d f f f f f f f f f d f f d f f f f f f f f f d f f d f f f f d f f d f f f f d f f f f f f f f f f f f f f f f f f f f f f d f f f f f b b b b b b b b b b b b b b b b b b b b b b b b b
+        b b b b b b b b b b b b b b b b b b b b b b b b b f f f f f d f f f f f f f f f f f f f f f f f f f f f f f f d f f f f f f f f d f f d f f f f f f f f f d f f d f f f f f f f f f d f f d f f f f d f f d f f f f d f f f f f f f f f f f f f f f f f f f f f f d f f f f f b b b b b b b b b b b b b b b b b b b b b b b b b
+        b b b b b b b b b b b b b b b b b b b b b b b b f f f f f f d f f f f f f f f f f f f f f f f f f f f f f f f d f f f f f f f f d f f d f f f f f f f f f d f f d f f f f f f f f f d f f d f f f f d f f d f f f f d f f f f f f f f f f f f f f f f f f f f f f d f f f f f b b b b b b b b b b b b b b b b b b b b b b b b b
+        b b b b b b b b b b b b b b b b b b b b b b b b f f f f f f d f f f f f f f f f f f f f f f f f f f f f f f f d f f f f f f f f d f f d f f f f f f f f f d f f d f f f f f f f f f d f f d f f f f d f f d f f f f d f f f f f f f f f f f f f f f f f f f f f f d f f f f f f b b b b b b b b b b b b b b b b b b b b b b b b
+        b b b b b b b b b b b b b b b b b b b b b b b b f f f f f f d f f f f f f f f f f f f f f f f f f f f f f f f d f f f f f f f f d f f d f f f f f f f f f d f f d f f f f f f f f f d f f d f f f f d f f d f f f f d f f f f f f f f f f f f f f f f f f f f f f d f f f f f f b b b b b b b b b b b b b b b b b b b b b b b b
+        b b b b b b b b b b b b b b b b b b b b b b b b f f f f f f d f f f f f f f f f f f f f f f f f f f f f f f f d f f f f f f f f d f f d f f f f f f f f f d f f d f f f f f f f f f d f f d f f f f d f f d f f f f d f f f f f f f f f f f f f f f f f f f f f f d f f f f f f b b b b b b b b b b b b b b b b b b b b b b b b
+        b b b b b b b b b b b b b b b b b b b b b b b f f f f f f f d f f f f f f f f f f f f f f f f f f f f f f f f d f f f f f f f f d f f d f f f f f f f f f d f f d f f f f f f f f f d f f d f f f f d f f d f f f f d f f f f f f f f f f f f f f f f f f f f f f d f f f f f f b b b b b b b b b b b b b b b b b b b b b b b b
+        b b b b b b b b b b b b b b b b b b b b b b b f f f f f f f d f f f f f f f f f f f f f f f f f f f f f f f f d f f f f f f f f d f f d f f f f f f f f f d f f d f f f f f f f f f d f f d f f f f d f f d f f f f d f f f f f f f f f f f f f f f f f f f f f f d f f f f f f f b b b b b b b b b b b b b b b b b b b b b b b
+        b b b b b b b b b b b b b b b b b b b b b b b f f f f f f f d f f f f f f f f f f f f f f f f f f f f f f f f d f f f f f f f f d f f d f f f f f f f f f d f f d f f f f f f f f f d f f d f f f f d f f d f f f f d f f f f f f f f f f f f f f f f f f f f f f d f f f f f f f b b b b b b b b b b b b b b b b b b b b b b b
+        b b b b b b b b b b b b b b b b b b b b b b b f f f f f f f d f f f f f f f f f f f f f f f f f f f f f f f f d f f f f f f f f d f f d f f f f f f f f f d f f d f f f f f f f f f d f f d f f f f d f f d f f f f d f f f f f f f f f f f f f f f f f f f f f f d f f f f f f f b b b b b b b b b b b b b b b b b b b b b b b
+        b b b b b b b b b b b b b b b b b b b b b b f f f f f f f f d f f f f f f f f f f f f f f f f f f f f f f f f d f f f f f f f f d f f d f f f f f f f f f d f f d f f f f f f f f d f f f f d f f f d f f d f f f f d f f f f f f f f f f f f f f f f f f f f f f d f f f f f f f f b b b b b b b b b b b b b b b b b b b b b b
+        b b b b b b b b b b b b b b b b b b b b b b f f f f f f f f d f f f f f f f f f f f f f f f f f f f f f f f f d f f f f f f f f d f f d f f f f f f f f f d f f d d d d d d d d d f f f f f f d d d d f f d f f f f d f f f f f f f f f f f f f f f f f f f f f f d f f f f f f f f b b b b b b b b b b b b b b b b b b b b b b
+        b b b b b b b b b b b b b b b b b b b b b b f f f f f f f f d f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f d f f f f f f f f b b b b b b b b b b b b b b b b b b b b b b
+        b b b b b b b b b b b b b b b b b b b b b b f f f f f f f f d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d f f f f f f f f b b b b b b b b b b b b b b b b b b b b b b
+        b b b b b b b b b b b b b b b b b b b b b f f f f f f f f f d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d f f f f f f f f f b b b b b b b b b b b b b b b b b b b b b
+        b b b b b b b b b b b b b b b b b b b b b f f f f f f f f f d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d f f f f f f f f f b b b b b b b b b b b b b b b b b b b b b
+        b b b b b b b b b b b b b b b b b b b b b f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f b b b b b b b b b b b b b b b b b b b b b
+        b b b b b b b b b b b b b b b b b b b b b f f f f f f f f f d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d f f f f f f f f f b b b b b b b b b b b b b b b b b b b b b
+        b b b b b b b b b b b b b b b b b b b b f f f f f f f f f d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d f f f f f f f f f b b b b b b b b b b b b b b b b b b b b
+        b b b b b b b b b b b b b b b b b b b b f f f f f f f f f d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d f f f f f f f f f b b b b b b b b b b b b b b b b b b b b
+        b b b b b b b b b b b b b b b b b b b b f f f f f f f f f d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d f f f f f f f f f b b b b b b b b b b b b b b b b b b b b
+        b b b b b b b b b b b b b b b b b b b b f f f f f f f f f d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d f f f f f f f f f b b b b b b b b b b b b b b b b b b b b
+        b b b b b b b b b b b b b b b b b b b f f f f f f f f f d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d f f f f f f f f f b b b b b b b b b b b b b b b b b b b
+        b b b b b b b b b b b b b b b b b b b f f f f f f f f f d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d f f f f f f f f f b b b b b b b b b b b b b b b b b b b
+        b b b b b b b b b b b b b b b b b b b f f f f f f f f f d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d f f f f f f f f f b b b b b b b b b b b b b b b b b b b
+        b b b b b b b b b b b b b b b b b b b f f f f f f f f f d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d f f f f f f f f f b b b b b b b b b b b b b b b b b b b
+        b b b b b b b b b b b b b b b b b b f f f f f f f f f d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d f f f f f f f f f b b b b b b b b b b b b b b b b b b
+        b b b b b b b b b b b b b b b b b b f f f f f f f f f d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d f f f f f f f f f b b b b b b b b b b b b b b b b b b
+        b b b b b b b b b b b b b b b b b b f f f f f f f f f d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d f f f f f f f f f b b b b b b b b b b b b b b b b b b
+        b b b b b b b b b b b b b b b b b b f f f f f f f f d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d f f f f f f f f b b b b b b b b b b b b b b b b b b
+        b b b b b b b b b b b b b b b b b f f f f f f f f f d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d f f f f f f f f f b b b b b b b b b b b b b b b b b
+        b b b b b b b b b b b b b b b b b f f f f f f f f f d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d f f f f f f f f f b b b b b b b b b b b b b b b b b
+        b b b b b b b b b b b b b b b b b f f f f f f f f f d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d f f f f f f f f f b b b b b b b b b b b b b b b b b
+        b b b b b b b b b b b b b b b b b f f f f f f f f d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d f f f f f f f f b b b b b b b b b b b b b b b b b
+        b b b b b b b b b b b b b b b b f f f f f f f f f d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d f f f f f f f f f b b b b b b b b b b b b b b b b
+        b b b b b b b b b b b b b b b b f f f f f f f f f d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d f f f f f f f f f b b b b b b b b b b b b b b b b
+        b b b b b b b b b b b b b b b b f f f f f f f f f d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d f f f f f f f f f b b b b b b b b b b b b b b b b
+        b b b b b b b b b b b b b b b b f f f f f f f f d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d f f f f f f f f b b b b b b b b b b b b b b b b
+        b b b b b b b b b b b b b b b f f f f f f f f f d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d f f f f f f f f f b b b b b b b b b b b b b b b
+        b b b b b b b b b b b b b b b f f f f f f f f f d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d f f f f f f f f f b b b b b b b b b b b b b b b
+        b b b b b b b b b b b b b b b f f f f f f f f f d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d f f f f f f f f f b b b b b b b b b b b b b b b
+        b b b b b b b b b b b b b b f f f f f f f f f d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d f f f f f f f f b b b b b b b b b b b b b b b
+        b b b b b b b b b b b b b b f f f f f f f f f d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d f f f f f f f f f b b b b b b b b b b b b b b
+        b b b b b b b b b b b b b b f f f f f f f f f d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d f f f f f f f f f b b b b b b b b b b b b b b
+        b b b b b b b b b b b b b b f f f f f f f f f d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d f f f f f f f f f b b b b b b b b b b b b b b
+        b b b b b b b b b b b b b f f f f f f f f f d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d f f f f f f f f b b b b b b b b b b b b b b
+        b b b b b b b b b b b b b f f f f f f f f f d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d f f f f f f f f f b b b b b b b b b b b b b
+        b b b b b b b b b b b b b f f f f f f f f f d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d f f f f f f f f f b b b b b b b b b b b b b
+        b b b b b b b b b b b b b f f f f f f f f f d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d f f f f f f f f f b b b b b b b b b b b b b
+        b b b b b b b b b b b b f f f f f f f f f d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d f f f f f f f f b b b b b b b b b b b b b
+        b b b b b b b b b b b b f f f f f f f f f d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d f f f f f f f f f b b b b b b b b b b b b
+        b b b b b b b b b b b b f f f f f f f f f d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d f f f f f f f f f b b b b b b b b b b b b
+        b b b b b b b b b b b b f f f f f f f f f d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d f f f f f f f f f b b b b b b b b b b b b
+        b b b b b b b b b b b f f f f f f f f f d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d f f f f f f f f b b b b b b b b b b b b
+        b b b b b b b b b b b f f f f f f f f f d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d f f f f f f f f f b b b b b b b b b b b
+        b b b b b b b b b b b f f f f f f f f f d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d f f f f f f f f f b b b b b b b b b b b
+        b b b b b b b b b b b f f f f f f f f f d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d f f f f f f f f f b b b b b b b b b b b
+        b b b b b b b b b b f f f f f f f f f d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d f f f f f f f f b b b b b b b b b b b
+        b b b b b b b b b b f f f f f f f f f d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d f f f f f f f f f b b b b b b b b b b
+        b b b b b b b b b b f f f f f f f f f d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d f f f f f f f f f b b b b b b b b b b
+        b b b b b b b b b b f f f f f f f f d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d f f f f f f f f b b b b b b b b b b
+        b b b b b b b b b f f f f f f f f f d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d f f f f f f f f b b b b b b b b b b
+        b b b b b b b b b f f f f f f f f f d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d f f f f f f f f f b b b b b b b b b
+        b b b b b b b b b f f f f f f f f f d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d f f f f f f f f f b b b b b b b b b
+        b b b b b b b b b f f f f f f f f d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d f f f f f f f f b b b b b b b b b
+        b b b b b b b b f f f f f f f f f d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d f f f f f f f f b b b b b b b b b
+        b b b b b b b b f f f f f f f f f d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d f f f f f f f f f b b b b b b b b
+        b b b b b b b b f f f f f f f f f d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d f f f f f f f f f b b b b b b b b
+        b b b b b b b b f f f f f f f f d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d f f f f f f f f b b b b b b b b
+        b b b b b b b f f f f f f f f f d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d f f f f f f f f f b b b b b b b
+        b b b b b b b f f f f f f f f f d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d f f f f f f f f f b b b b b b b
+        b b b b b b b f f f f f f f f f d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d f f f f f f f f f b b b b b b b
+        b b b b b b b f f f f f f f f d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d f f f f f f f f b b b b b b b
+        b b b b b b f f f f f f f f f d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d f f f f f f f f f b b b b b b
+        b b b b b b f f f f f f f f f d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d f f f f f f f f f b b b b b b
+        b b b b b b f f f f f f f f f d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d f f f f f f f f f b b b b b b
+        b b b b b b f f f f f f f f d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d f f f f f f f f b b b b b b
+        b b b b b f f f f f f f f f d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d f f f f f f f f f b b b b b
+        b b b b b f f f f f f f f f d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d f f f f f f f f f b b b b b
+        b b b b b f f f f f f f f f d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d f f d d d f f f f f f f f f b b b b b
+        b b b b b f f f f f f f f d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d f b b f d d d f f f f f f f f b b b b b
+        b b b b f f f f f f f f f d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d f b b b f d d f f f f f f f f f b b b b
+        b b b b f f f f f f f f f d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d f b b b f d d f f f f f f f f f b b b b
+        b b b b f f f f f f f f f d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d f b b b f d d f f f f f f f f f b b b b
+        b b b b f f f f f f f f f d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d f b b b f d d f f f f f f f f f b b b b
+        b b b f f f f f f f f f d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d f b b b f d d f f f f f f f f f b b b
+        b b b f f f f f f f f f d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d f b b b f d d f f f f f f f f f b b b
+        b b b f f f f f f f f f d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d f b b b f d d f f f f f f f f f b b b
+        b b b f f f f f f f f f d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d f b b b f d d f f f f f f f f f b b b
+        b b f f f f f f f f f d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d f b b b f d d f f f f f f f f f b b
+        b b f f f f f f f f f d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d f b b b f d d f f f f f f f f f b b
+        b b f f f f f f f f f d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d f b b b f d d f f f f f f f f f b b
+        b b f f f f f f f f f d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d f b b b f d d f f f f f f f f f b b
+        b f f f f f f f f f d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d f b b b f d d f f f f f f f f f b
+        b f f f f f f f f f d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d f b b b f d d f f f f f f f f f b
+        b f f f f f f f f f d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d f b b b f d d f f f f f f f f f b
+        b f f f f f f f f f d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d f b b b f d d f f f f f f f f f b
+        f f f f f f f f f d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d f b b b f d d f f f f f f f f f
+    `)
     leftpedal = sprites.create(img`
-. f f f f . . . . . . . . . . 
-f f . f f f . . . . . . . . . 
-b f f f f f f f f . . . . . . 
-b b b f f f f f f f f . . . . 
-. b b b b b f f f f f f f . . 
-. . . b b b b b f f f f f f f 
-. . . . . . b b b b b b b b b 
-. . . . . . . . b b b b b b b 
-`, SpriteKind.LeftBumper)
+        . f f f f . . . . . . . . . .
+        f f . f f f . . . . . . . . .
+        b f f f f f f f f . . . . . .
+        b b b f f f f f f f f . . . .
+        . b b b b b f f f f f f f . .
+        . . . b b b b b f f f f f f f
+        . . . . . . b b b b b b b b b
+        . . . . . . . . b b b b b b b
+    `, SpriteKind.LeftBumper)
     leftpedal.setPosition(70, 115)
     rightpedal = sprites.create(img`
-. . . . . . . . . . f f f f . 
-. . . . . . . . . f f f . f f 
-. . . . . . f f f f f f f f b 
-. . . . f f f f f f f f b b b 
-. . f f f f f f f b b b b b . 
-f f f f f f f b b b b b . . . 
-b b b b b b b b b . . . . . . 
-b b b b b b b . . . . . . . . 
-`, SpriteKind.RightBumper)
+        . . . . . . . . . . f f f f .
+        . . . . . . . . . f f f . f f
+        . . . . . . f f f f f f f f b
+        . . . . f f f f f f f f b b b
+        . . f f f f f f f b b b b b .
+        f f f f f f f b b b b b . . .
+        b b b b b b b b b . . . . . .
+        b b b b b b b . . . . . . . .
+    `, SpriteKind.RightBumper)
     rightpedal.setPosition(90, 115)
     LeftPedalT = sprites.create(img`
-. f f f f . . . . . . . . . . 
-f f . f f f . . . . . . . . . 
-b f f f f f f f f . . . . . . 
-b b b f f f f f f f f . . . . 
-. b b b b b f f f f f f f . . 
-. . . b b b b b f f f f f f f 
-. . . . . . b b b b b b b b b 
-. . . . . . . . b b b b b b b 
-`, SpriteKind.LeftBumper)
+        . f f f f . . . . . . . . . .
+        f f . f f f . . . . . . . . .
+        b f f f f f f f f . . . . . .
+        b b b f f f f f f f f . . . .
+        . b b b b b f f f f f f f . .
+        . . . b b b b b f f f f f f f
+        . . . . . . b b b b b b b b b
+        . . . . . . . . b b b b b b b
+    `, SpriteKind.LeftBumper)
     LeftPedalT.setPosition(60, 85)
     RightPedalT = sprites.create(img`
-. . . . . . . . . . f f f f . 
-. . . . . . . . . f f f . f f 
-. . . . . . f f f f f f f f b 
-. . . . f f f f f f f f b b b 
-. . f f f f f f f b b b b b . 
-f f f f f f f b b b b b . . . 
-b b b b b b b b b . . . . . . 
-b b b b b b b . . . . . . . . 
-`, SpriteKind.RightBumper)
+        . . . . . . . . . . f f f f .
+        . . . . . . . . . f f f . f f
+        . . . . . . f f f f f f f f b
+        . . . . f f f f f f f f b b b
+        . . f f f f f f f b b b b b .
+        f f f f f f f b b b b b . . .
+        b b b b b b b b b . . . . . .
+        b b b b b b b . . . . . . . .
+    `, SpriteKind.RightBumper)
     RightPedalT.setPosition(100, 85)
 }
 sprites.onOverlap(SpriteKind.Player, SpriteKind.LeftTableWall, function (sprite, otherSprite) {
@@ -261,38 +261,38 @@ function Start2 () {
     Create_Bouncer(110, 60)
     Create_Bouncer(50, 60)
     Jackpot2 = sprites.create(img`
-. . . f f . . . 
-. . f f f f . . 
-. f f b b f f . 
-f f b b b b f f 
-f f b b b b f f 
-b f f b b f f b 
-b b f f f f b b 
-. b b f f b b . 
-. . b b b b . . 
-. . . b b . . . 
-`, SpriteKind.Jackpot)
+        . . . f f . . .
+        . . f f f f . .
+        . f f b b f f .
+        f f b b b b f f
+        f f b b b b f f
+        b f f b b f f b
+        b b f f f f b b
+        . b b f f b b .
+        . . b b b b . .
+        . . . b b . . .
+    `, SpriteKind.Jackpot)
     OffScreen = sprites.create(img`
-d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d f b b b f d d 
-`, SpriteKind.Enemy)
+        d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d f b b b f d d
+    `, SpriteKind.Enemy)
     OffScreen.setPosition(80, 119)
     Multiball = sprites.create(img`
-. . . . . . . . 
-f f f f f f f f 
-f f e e e e f f 
-b f f e e f f b 
-b b f f f f b b 
-. b b f f b b . 
-. . b b b b . . 
-. . . b b . . . 
-`, SpriteKind.MultiBall)
+        . . . . . . . .
+        f f f f f f f f
+        f f e e e e f f
+        b f f e e f f b
+        b b f f f f b b
+        . b b f f b b .
+        . . b b b b . .
+        . . . b b . . .
+    `, SpriteKind.MultiBall)
     Multiball.setPosition(40, 85)
     Ball = sprites.create(img`
-. e e . 
-e e e e 
-e e e e 
-. e e . 
-`, SpriteKind.Player)
+        . e e .
+        e e e e
+        e e e e
+        . e e .
+    `, SpriteKind.Player)
     Ball.setPosition(142, 100)
     pause(100)
     Ball.setVelocity(-20, -50)
@@ -301,99 +301,99 @@ e e e e
 }
 function make_right_sides () {
     PinWall1 = sprites.create(img`
-f f . . . . . . . . 
-f f . . . . . . . . 
-f f . . . . . . . . 
-f f . . . . . . . . 
-f f f . . . . . . . 
-f f f . . . . . . . 
-f f f . . . . . . . 
-f f f . . . . . . . 
-f f f f . . . . . . 
-f f f f . . . . . . 
-f f f f . . . . . . 
-f f f f . . . . . . 
-f f f f f . . . . . 
-f f f f f . . . . . 
-f f f f f . . . . . 
-f f f f f . . . . . 
-f f f f f f . . . . 
-f f f f f f . . . . 
-f f f f f f . . . . 
-f f f f f f . . . . 
-f f f f f f f . . . 
-f f f f f f f . . . 
-f f f f f f f . . . 
-f f f f f f f f . . 
-f f f f f f f f . . 
-f f f f f f f f . . 
-f f f f f f f f . . 
-f f f f f f f f f . 
-f f f f f f f f f . 
-f f f f f f f f f . 
-f f f f f f f f f . 
-f f f f f f f f f f 
-`, SpriteKind.tablewall)
+        f f . . . . . . . .
+        f f . . . . . . . .
+        f f . . . . . . . .
+        f f . . . . . . . .
+        f f f . . . . . . .
+        f f f . . . . . . .
+        f f f . . . . . . .
+        f f f . . . . . . .
+        f f f f . . . . . .
+        f f f f . . . . . .
+        f f f f . . . . . .
+        f f f f . . . . . .
+        f f f f f . . . . .
+        f f f f f . . . . .
+        f f f f f . . . . .
+        f f f f f . . . . .
+        f f f f f f . . . .
+        f f f f f f . . . .
+        f f f f f f . . . .
+        f f f f f f . . . .
+        f f f f f f f . . .
+        f f f f f f f . . .
+        f f f f f f f . . .
+        f f f f f f f f . .
+        f f f f f f f f . .
+        f f f f f f f f . .
+        f f f f f f f f . .
+        f f f f f f f f f .
+        f f f f f f f f f .
+        f f f f f f f f f .
+        f f f f f f f f f .
+        f f f f f f f f f f
+    `, SpriteKind.tablewall)
     PinWall1.setPosition(135, 24)
     PinWall2 = sprites.create(img`
-. f f f f f f f f f . . . . . . 
-. f f f f f f f f f . . . . . . 
-. f f f f f f f f f . . . . . . 
-. f f f f f f f f f . . . . . . 
-. . f f f f f f f f f . . . . . 
-. . f f f f f f f f f . . . . . 
-. . f f f f f f f f f . . . . . 
-. . f f f f f f f f f . . . . . 
-. . . f f f f f f f f f . . . . 
-. . . f f f f f f f f f . . . . 
-. . . f f f f f f f f f . . . . 
-. . . . f f f f f f f f . . . . 
-. . . . f f f f f f f f f . . . 
-. . . . f f f f f f f f f . . . 
-. . . . f f f f f f f f f . . . 
-. . . . . f f f f f f f f . . . 
-. . . . . f f f f f f f f f . . 
-. . . . . f f f f f f f f f . . 
-. . . . . f f f f f f f f f . . 
-. . . . . . f f f f f f f f . . 
-. . . . . . f f f f f f f f f . 
-. . . . . . f f f f f f f f f . 
-. . . . . . f f f f f f f f f . 
-. . . . . . . f f f f f f f f . 
-. . . . . . . f f f f f f f f f 
-. . . . . . . f f f f f f f f f 
-. . . . . . . f f f f f f f f f 
-. . . . . . . . f f f f f f f f 
-`, SpriteKind.tablewall)
+        . f f f f f f f f f . . . . . .
+        . f f f f f f f f f . . . . . .
+        . f f f f f f f f f . . . . . .
+        . f f f f f f f f f . . . . . .
+        . . f f f f f f f f f . . . . .
+        . . f f f f f f f f f . . . . .
+        . . f f f f f f f f f . . . . .
+        . . f f f f f f f f f . . . . .
+        . . . f f f f f f f f f . . . .
+        . . . f f f f f f f f f . . . .
+        . . . f f f f f f f f f . . . .
+        . . . . f f f f f f f f . . . .
+        . . . . f f f f f f f f f . . .
+        . . . . f f f f f f f f f . . .
+        . . . . f f f f f f f f f . . .
+        . . . . . f f f f f f f f . . .
+        . . . . . f f f f f f f f f . .
+        . . . . . f f f f f f f f f . .
+        . . . . . f f f f f f f f f . .
+        . . . . . . f f f f f f f f . .
+        . . . . . . f f f f f f f f f .
+        . . . . . . f f f f f f f f f .
+        . . . . . . f f f f f f f f f .
+        . . . . . . . f f f f f f f f .
+        . . . . . . . f f f f f f f f f
+        . . . . . . . f f f f f f f f f
+        . . . . . . . f f f f f f f f f
+        . . . . . . . . f f f f f f f f
+    `, SpriteKind.tablewall)
     PinWall2.setPosition(138, 54)
     PinWall4 = sprites.create(img`
-f f f f f f f f f . . . . . . 
-f f f f f f f f f . . . . . . 
-f f f f f f f f f . . . . . . 
-. f f f f f f f f . . . . . . 
-. f f f f f f f f f . . . . . 
-. f f f f f f f f f . . . . . 
-. f f f f f f f f f . . . . . 
-. . f f f f f f f f . . . . . 
-. . f f f f f f f f f . . . . 
-. . f f f f f f f f f . . . . 
-. . f f f f f f f f f . . . . 
-. . f f f f f f f f f . . . . 
-. . . f f f f f f f f f . . . 
-. . . f f f f f f f f f . . . 
-. . . f f f f f f f f f . . . 
-. . . f f f f f f f f f . . . 
-. . . . f f f f f f f f f . . 
-. . . . f f f f f f f f f . . 
-. . . . f f f f f f f f f . . 
-. . . . f f f f f f f f f . . 
-. . . . . f f f f f f f f f . 
-. . . . . f f f f f f f f f . 
-. . . . . f f f f f f f f f . 
-. . . . . f f f f f f f f f . 
-. . . . . . f f f f f f f f f 
-. . . . . . f f f f f f f f f 
-`, SpriteKind.tablewall)
+        f f f f f f f f f . . . . . .
+        f f f f f f f f f . . . . . .
+        f f f f f f f f f . . . . . .
+        . f f f f f f f f . . . . . .
+        . f f f f f f f f f . . . . .
+        . f f f f f f f f f . . . . .
+        . f f f f f f f f f . . . . .
+        . . f f f f f f f f . . . . .
+        . . f f f f f f f f f . . . .
+        . . f f f f f f f f f . . . .
+        . . f f f f f f f f f . . . .
+        . . f f f f f f f f f . . . .
+        . . . f f f f f f f f f . . .
+        . . . f f f f f f f f f . . .
+        . . . f f f f f f f f f . . .
+        . . . f f f f f f f f f . . .
+        . . . . f f f f f f f f f . .
+        . . . . f f f f f f f f f . .
+        . . . . f f f f f f f f f . .
+        . . . . f f f f f f f f f . .
+        . . . . . f f f f f f f f f .
+        . . . . . f f f f f f f f f .
+        . . . . . f f f f f f f f f .
+        . . . . . f f f f f f f f f .
+        . . . . . . f f f f f f f f f
+        . . . . . . f f f f f f f f f
+    `, SpriteKind.tablewall)
     PinWall4.setPosition(152, 106)
 }
 sprites.onOverlap(SpriteKind.Player, SpriteKind.LeftBumper, function (sprite, otherSprite) {
@@ -412,148 +412,148 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, otherSp
 })
 function makeleftsides () {
     PinWall1 = sprites.create(img`
-f f . . . . . . . . 
-f f . . . . . . . . 
-f f . . . . . . . . 
-f f . . . . . . . . 
-f f f . . . . . . . 
-f f f . . . . . . . 
-f f f . . . . . . . 
-f f f . . . . . . . 
-f f f f . . . . . . 
-f f f f . . . . . . 
-f f f f . . . . . . 
-f f f f . . . . . . 
-f f f f f . . . . . 
-f f f f f . . . . . 
-f f f f f . . . . . 
-f f f f f . . . . . 
-f f f f f f . . . . 
-f f f f f f . . . . 
-f f f f f f . . . . 
-f f f f f f . . . . 
-f f f f f f f . . . 
-f f f f f f f . . . 
-f f f f f f f . . . 
-f f f f f f f f . . 
-f f f f f f f f . . 
-f f f f f f f f . . 
-f f f f f f f f . . 
-f f f f f f f f f . 
-f f f f f f f f f . 
-f f f f f f f f f . 
-f f f f f f f f f . 
-f f f f f f f f f f 
-`, SpriteKind.LeftTableWall)
+        f f . . . . . . . .
+        f f . . . . . . . .
+        f f . . . . . . . .
+        f f . . . . . . . .
+        f f f . . . . . . .
+        f f f . . . . . . .
+        f f f . . . . . . .
+        f f f . . . . . . .
+        f f f f . . . . . .
+        f f f f . . . . . .
+        f f f f . . . . . .
+        f f f f . . . . . .
+        f f f f f . . . . .
+        f f f f f . . . . .
+        f f f f f . . . . .
+        f f f f f . . . . .
+        f f f f f f . . . .
+        f f f f f f . . . .
+        f f f f f f . . . .
+        f f f f f f . . . .
+        f f f f f f f . . .
+        f f f f f f f . . .
+        f f f f f f f . . .
+        f f f f f f f f . .
+        f f f f f f f f . .
+        f f f f f f f f . .
+        f f f f f f f f . .
+        f f f f f f f f f .
+        f f f f f f f f f .
+        f f f f f f f f f .
+        f f f f f f f f f .
+        f f f f f f f f f f
+    `, SpriteKind.LeftTableWall)
     PinWall1.image.flipX()
     PinWall1.setPosition(25, 24)
     PinWall2 = sprites.create(img`
-. f f f f f f f f f . . . . . . 
-. f f f f f f f f f . . . . . . 
-. f f f f f f f f f . . . . . . 
-. f f f f f f f f f . . . . . . 
-. . f f f f f f f f f . . . . . 
-. . f f f f f f f f f . . . . . 
-. . f f f f f f f f f . . . . . 
-. . f f f f f f f f f . . . . . 
-. . . f f f f f f f f f . . . . 
-. . . f f f f f f f f f . . . . 
-. . . f f f f f f f f f . . . . 
-. . . . f f f f f f f f . . . . 
-. . . . f f f f f f f f f . . . 
-. . . . f f f f f f f f f . . . 
-. . . . f f f f f f f f f . . . 
-. . . . . f f f f f f f f . . . 
-. . . . . f f f f f f f f f . . 
-. . . . . f f f f f f f f f . . 
-. . . . . f f f f f f f f f . . 
-. . . . . . f f f f f f f f . . 
-. . . . . . f f f f f f f f f . 
-. . . . . . f f f f f f f f f . 
-. . . . . . f f f f f f f f f . 
-. . . . . . . f f f f f f f f . 
-. . . . . . . f f f f f f f f f 
-. . . . . . . f f f f f f f f f 
-. . . . . . . f f f f f f f f f 
-. . . . . . . . f f f f f f f f 
-`, SpriteKind.LeftTableWall)
+        . f f f f f f f f f . . . . . .
+        . f f f f f f f f f . . . . . .
+        . f f f f f f f f f . . . . . .
+        . f f f f f f f f f . . . . . .
+        . . f f f f f f f f f . . . . .
+        . . f f f f f f f f f . . . . .
+        . . f f f f f f f f f . . . . .
+        . . f f f f f f f f f . . . . .
+        . . . f f f f f f f f f . . . .
+        . . . f f f f f f f f f . . . .
+        . . . f f f f f f f f f . . . .
+        . . . . f f f f f f f f . . . .
+        . . . . f f f f f f f f f . . .
+        . . . . f f f f f f f f f . . .
+        . . . . f f f f f f f f f . . .
+        . . . . . f f f f f f f f . . .
+        . . . . . f f f f f f f f f . .
+        . . . . . f f f f f f f f f . .
+        . . . . . f f f f f f f f f . .
+        . . . . . . f f f f f f f f . .
+        . . . . . . f f f f f f f f f .
+        . . . . . . f f f f f f f f f .
+        . . . . . . f f f f f f f f f .
+        . . . . . . . f f f f f f f f .
+        . . . . . . . f f f f f f f f f
+        . . . . . . . f f f f f f f f f
+        . . . . . . . f f f f f f f f f
+        . . . . . . . . f f f f f f f f
+    `, SpriteKind.LeftTableWall)
     PinWall2.image.flipX()
     PinWall2.setPosition(22, 54)
     PinWall3 = sprites.create(img`
-. . . . . f f f f f f f f f . . . . . . 
-. . . . . f f f f f f f f f . . . . . . 
-. . . . . f f f f f f f f f . . . . . . 
-. . . . . . f f f f f f f f . . . . . . 
-. . . . . . f f f f f f f f f . . . . . 
-. . . . . . f f f f f f f f f . . . . . 
-. . . . . . f f f f f f f f f . . . . . 
-. . . . . . . f f f f f f f f . . . . . 
-. . . . . . . f f f f f f f f f . . . . 
-. . . . . . . f f f f f f f f f . . . . 
-. . . . . . . f f f f f f f f f . . . . 
-. . . . . . . . f f f f f f f f . . . . 
-. . . . . . . . f f f f f f f f f . . . 
-. . . . . . . . f f f f f f f f f . . . 
-. . . . . . . . . f f f f f f f f . . . 
-. . . . . . . . . f f f f f f f f . . . 
-. . . . . . . . . f f f f f f f f f . . 
-. . . . . . . . . f f f f f f f f f . . 
-. . . . . . . . . . f f f f f f f f . . 
-. . . . . . . . . . f f f f f f f f . . 
-. . . . . . . . . . f f f f f f f f f . 
-. . . . . . . . . . f f f f f f f f f . 
-. . . . . . . . . . . f f f f f f f f . 
-. . . . . . . . . . . f f f f f f f f f 
-. . . . . . . . . . . f f f f f f f f f 
-. . . . . . . . . . . f f f f f f f f f 
-. . . . . . . . . . . . f f f f f f f f 
-`, SpriteKind.LeftTableWall)
+        . . . . . f f f f f f f f f . . . . . .
+        . . . . . f f f f f f f f f . . . . . .
+        . . . . . f f f f f f f f f . . . . . .
+        . . . . . . f f f f f f f f . . . . . .
+        . . . . . . f f f f f f f f f . . . . .
+        . . . . . . f f f f f f f f f . . . . .
+        . . . . . . f f f f f f f f f . . . . .
+        . . . . . . . f f f f f f f f . . . . .
+        . . . . . . . f f f f f f f f f . . . .
+        . . . . . . . f f f f f f f f f . . . .
+        . . . . . . . f f f f f f f f f . . . .
+        . . . . . . . . f f f f f f f f . . . .
+        . . . . . . . . f f f f f f f f f . . .
+        . . . . . . . . f f f f f f f f f . . .
+        . . . . . . . . . f f f f f f f f . . .
+        . . . . . . . . . f f f f f f f f . . .
+        . . . . . . . . . f f f f f f f f f . .
+        . . . . . . . . . f f f f f f f f f . .
+        . . . . . . . . . . f f f f f f f f . .
+        . . . . . . . . . . f f f f f f f f . .
+        . . . . . . . . . . f f f f f f f f f .
+        . . . . . . . . . . f f f f f f f f f .
+        . . . . . . . . . . . f f f f f f f f .
+        . . . . . . . . . . . f f f f f f f f f
+        . . . . . . . . . . . f f f f f f f f f
+        . . . . . . . . . . . f f f f f f f f f
+        . . . . . . . . . . . . f f f f f f f f
+    `, SpriteKind.LeftTableWall)
     PinWall3.image.flipX()
     PinWall3.setPosition(17, 80)
     PinWall4 = sprites.create(img`
-f f f f f f f f f . . . . . . 
-f f f f f f f f f . . . . . . 
-f f f f f f f f f . . . . . . 
-. f f f f f f f f . . . . . . 
-. f f f f f f f f f . . . . . 
-. f f f f f f f f f . . . . . 
-. f f f f f f f f f . . . . . 
-. . f f f f f f f f . . . . . 
-. . f f f f f f f f f . . . . 
-. . f f f f f f f f f . . . . 
-. . f f f f f f f f f . . . . 
-. . f f f f f f f f f . . . . 
-. . . f f f f f f f f f . . . 
-. . . f f f f f f f f f . . . 
-. . . f f f f f f f f f . . . 
-. . . f f f f f f f f f . . . 
-. . . . f f f f f f f f f . . 
-. . . . f f f f f f f f f . . 
-. . . . f f f f f f f f f . . 
-. . . . f f f f f f f f f . . 
-. . . . . f f f f f f f f f . 
-. . . . . f f f f f f f f f . 
-. . . . . f f f f f f f f f . 
-. . . . . f f f f f f f f f . 
-. . . . . . f f f f f f f f f 
-. . . . . . f f f f f f f f f 
-`, SpriteKind.LeftTableWall)
+        f f f f f f f f f . . . . . .
+        f f f f f f f f f . . . . . .
+        f f f f f f f f f . . . . . .
+        . f f f f f f f f . . . . . .
+        . f f f f f f f f f . . . . .
+        . f f f f f f f f f . . . . .
+        . f f f f f f f f f . . . . .
+        . . f f f f f f f f . . . . .
+        . . f f f f f f f f f . . . .
+        . . f f f f f f f f f . . . .
+        . . f f f f f f f f f . . . .
+        . . f f f f f f f f f . . . .
+        . . . f f f f f f f f f . . .
+        . . . f f f f f f f f f . . .
+        . . . f f f f f f f f f . . .
+        . . . f f f f f f f f f . . .
+        . . . . f f f f f f f f f . .
+        . . . . f f f f f f f f f . .
+        . . . . f f f f f f f f f . .
+        . . . . f f f f f f f f f . .
+        . . . . . f f f f f f f f f .
+        . . . . . f f f f f f f f f .
+        . . . . . f f f f f f f f f .
+        . . . . . f f f f f f f f f .
+        . . . . . . f f f f f f f f f
+        . . . . . . f f f f f f f f f
+    `, SpriteKind.LeftTableWall)
     PinWall4.image.flipX()
     PinWall4.setPosition(7, 106)
 }
 function Create_Bouncer (x: number, y: number) {
     bouncerSprite = sprites.create(img`
-. . f f f f . . 
-. f f f f f f . 
-f f f f f f f f 
-f f f b b f f f 
-f f f . . f f f 
-f f f f f f f f 
-b f f f f f f b 
-b . f f f f . b 
-. . . b b . . . 
-. . . b b . . . 
-`, SpriteKind.Bouncer)
+        . . f f f f . .
+        . f f f f f f .
+        f f f f f f f f
+        f f f b b f f f
+        f f f . . f f f
+        f f f f f f f f
+        b f f f f f f b
+        b . f f f f . b
+        . . . b b . . .
+        . . . b b . . .
+    `, SpriteKind.Bouncer)
     bouncerSprite.setPosition(x, y)
     bouncerSprite.z = 100
 }
@@ -587,22 +587,22 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.RightWall, function (sprite, oth
 })
 function Left_Wall (x: number, y: number) {
     Wall2 = sprites.create(img`
-f f . . 
-f f f f 
-b b f f 
-b b b b 
-. . b b 
-`, SpriteKind.LeftWall)
+        f f . .
+        f f f f
+        b b f f
+        b b b b
+        . . b b
+    `, SpriteKind.LeftWall)
     Wall2.setPosition(x, y)
 }
 function Right_Wall (x: number, y: number) {
     Wall2 = sprites.create(img`
-. . f f 
-f f f f 
-f f b b 
-b b b b 
-b b . . 
-`, SpriteKind.RightWall)
+        . . f f
+        f f f f
+        f f b b
+        b b b b
+        b b . .
+    `, SpriteKind.RightWall)
     Wall2.setPosition(x, y)
 }
 let Wall2: Sprite = null
@@ -629,90 +629,92 @@ Start2()
 game.onUpdate(function () {
     if (controller.anyButton.isPressed()) {
         rightpedal.setImage(img`
-f f f f f f f f f f f f f f . 
-b f f f f f f f f f f f . f f 
-b b b f f f f f f f f f f f b 
-. b b b b b b b f f f f b b b 
-. . . b b b b b b b b b b b . 
-. . . . . . . . b b b b . . . 
-. . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . 
-`)
+            f f f f f f f f f f f f f f .
+            b f f f f f f f f f f f . f f
+            b b b f f f f f f f f f f f b
+            . b b b b b b b f f f f b b b
+            . . . b b b b b b b b b b b .
+            . . . . . . . . b b b b . . .
+            . . . . . . . . . . . . . . .
+            . . . . . . . . . . . . . . .
+        `)
         RightPedalT.setImage(img`
-f f f f f f f f f f f f f f . 
-b f f f f f f f f f f f . f f 
-b b b f f f f f f f f f f f b 
-. b b b b b b b f f f f b b b 
-. . . b b b b b b b b b b b . 
-. . . . . . . . b b b b . . . 
-. . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . 
-`)
+            f f f f f f f f f f f f f f .
+            b f f f f f f f f f f f . f f
+            b b b f f f f f f f f f f f b
+            . b b b b b b b f f f f b b b
+            . . . b b b b b b b b b b b .
+            . . . . . . . . b b b b . . .
+            . . . . . . . . . . . . . . .
+            . . . . . . . . . . . . . . .
+        `)
         leftpedal.setImage(img`
-. f f f f f f f f f f f f f f 
-f f . f f f f f f f f f f f b 
-b f f f f f f f f f f f b b b 
-b b b f f f f b b b b b b b . 
-. b b b b b b b b b b b . . . 
-. . . b b b b . . . . . . . . 
-. . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . 
-`)
+            . f f f f f f f f f f f f f f
+            f f . f f f f f f f f f f f b
+            b f f f f f f f f f f f b b b
+            b b b f f f f b b b b b b b .
+            . b b b b b b b b b b b . . .
+            . . . b b b b . . . . . . . .
+            . . . . . . . . . . . . . . .
+            . . . . . . . . . . . . . . .
+        `)
         LeftPedalT.setImage(img`
-. f f f f f f f f f f f f f f 
-f f . f f f f f f f f f f f b 
-b f f f f f f f f f f f b b b 
-b b b f f f f b b b b b b b . 
-. b b b b b b b b b b b . . . 
-. . . b b b b . . . . . . . . 
-. . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . 
-`)
+            . f f f f f f f f f f f f f f
+            f f . f f f f f f f f f f f b
+            b f f f f f f f f f f f b b b
+            b b b f f f f b b b b b b b .
+            . b b b b b b b b b b b . . .
+            . . . b b b b . . . . . . . .
+            . . . . . . . . . . . . . . .
+            . . . . . . . . . . . . . . .
+        `)
         up = true
     } else {
         rightpedal.setImage(img`
-. . . . . . . . . . f f f f . 
-. . . . . . . . . f f f . f f 
-. . . . . . f f f f f f f f b 
-. . . . f f f f f f f f b b b 
-. . f f f f f f f b b b b b . 
-f f f f f f f b b b b b . . . 
-b b b b b b b b b . . . . . . 
-b b b b b b b . . . . . . . . 
-`)
+            . . . . . . . . . . f f f f .
+            . . . . . . . . . f f f . f f
+            . . . . . . f f f f f f f f b
+            . . . . f f f f f f f f b b b
+            . . f f f f f f f b b b b b .
+            f f f f f f f b b b b b . . .
+            b b b b b b b b b . . . . . .
+            b b b b b b b . . . . . . . .
+        `)
         RightPedalT.setImage(img`
-. . . . . . . . . . f f f f . 
-. . . . . . . . . f f f . f f 
-. . . . . . f f f f f f f f b 
-. . . . f f f f f f f f b b b 
-. . f f f f f f f b b b b b . 
-f f f f f f f b b b b b . . . 
-b b b b b b b b b . . . . . . 
-b b b b b b b . . . . . . . . 
-`)
+            . . . . . . . . . . f f f f .
+            . . . . . . . . . f f f . f f
+            . . . . . . f f f f f f f f b
+            . . . . f f f f f f f f b b b
+            . . f f f f f f f b b b b b .
+            f f f f f f f b b b b b . . .
+            b b b b b b b b b . . . . . .
+            b b b b b b b . . . . . . . .
+        `)
         leftpedal.setImage(img`
-. f f f f . . . . . . . . . . 
-f f . f f f . . . . . . . . . 
-b f f f f f f f f . . . . . . 
-b b b f f f f f f f f . . . . 
-. b b b b b f f f f f f f . . 
-. . . b b b b b f f f f f f f 
-. . . . . . b b b b b b b b b 
-. . . . . . . . b b b b b b b 
-`)
+            . f f f f . . . . . . . . . .
+            f f . f f f . . . . . . . . .
+            b f f f f f f f f . . . . . .
+            b b b f f f f f f f f . . . .
+            . b b b b b f f f f f f f . .
+            . . . b b b b b f f f f f f f
+            . . . . . . b b b b b b b b b
+            . . . . . . . . b b b b b b b
+        `)
         LeftPedalT.setImage(img`
-. f f f f . . . . . . . . . . 
-f f . f f f . . . . . . . . . 
-b f f f f f f f f . . . . . . 
-b b b f f f f f f f f . . . . 
-. b b b b b f f f f f f f . . 
-. . . b b b b b f f f f f f f 
-. . . . . . b b b b b b b b b 
-. . . . . . . . b b b b b b b 
-`)
+            . f f f f . . . . . . . . . .
+            f f . f f f . . . . . . . . .
+            b f f f f f f f f . . . . . .
+            b b b f f f f f f f f . . . .
+            . b b b b b f f f f f f f . .
+            . . . b b b b b f f f f f f f
+            . . . . . . b b b b b b b b b
+            . . . . . . . . b b b b b b b
+        `)
         up = false
     }
     if (NumOfBalls <= 0) {
-        game.over(false)
+        game.splash("Game", "Over")
+        game.splash("Score - " + info.score(), "High Score -" + info.highScore())
+        game.reset()
     }
 })
